@@ -1,0 +1,20 @@
+{
+    "name": "synctree-nblock",
+    "version": "0.1.2",
+    "main": "index.js",
+    "keywords": [
+        "synctree",
+        "nblock",
+        "synctree-nblock",
+        "blockly"
+    ],
+    "homepage": "https://github.com/SynctreeRndTech/synctree-nblock",
+    "bugs": "https://github.com/SynctreeRndTech/synctree-nblock/issues",
+    "repository": "https://github.com/SynctreeRndTech/synctree-nblock.git",
+    "author": "Synctree R&D Tech <rndtech@nntuple.com>",
+    "license": "MIT",
+    "dependencies": {
+        "blockly": "^6.20210701.0",
+        "lodash": "^4.17.21"
+    }
+}
