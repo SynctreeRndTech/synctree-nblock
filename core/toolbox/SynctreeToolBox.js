@@ -7,28 +7,21 @@ class CustomCategory extends Blockly.ToolboxCategory {
      */
     constructor(categoryDef, toolbox, opt_parent) {
         super(categoryDef, toolbox, opt_parent);
-        // console.log("CustomCategory", categoryDef, toolbox, Blockly.FieldColour);
-        console.log("constructor", opt_parent, this);
     }
     /** @override */
     addColourBorder_(colour) {
-        // this.rowDiv_.style.backgroundColor = colour;
-        console.log("addColourBorder_", this);
         this.rowDiv_.style.borderColor = `rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) ${colour}`;
         if (this.level_ > 0) {
             this.rowDiv_.style.marginLeft = `${10 + 19 * this.level_}px`;
             this.rowDiv_.style.paddingLeft = 0;
         }
-        // this.rowDiv_.style.borderLeftWidth = `1.25rem`;
     }
     /** @override */
     setSelected(isSelected) {
-        console.log("setSelected", isSelected);
         // We do not store the label span on the category, so use getElementsByClassName.
         const labelDom =
             this.rowDiv_.getElementsByClassName("blocklyTreeLabel")[0];
 
-        // console.log("asdasdasd", this);
         if (isSelected) {
             // Change the background color of the div to white.
             this.rowDiv_.style.backgroundColor = this.colour_ + "75"; // opacity
@@ -73,7 +66,6 @@ class CustomCollapsibleCategory extends Blockly.CollapsibleToolboxCategory {
      */
     constructor(categoryDef, toolbox, opt_parent) {
         super(categoryDef, toolbox, opt_parent);
-        console.log("constructor2", this);
         // this.expanded_ = true;
     }
     /** @override */
@@ -91,7 +83,6 @@ class CustomCollapsibleCategory extends Blockly.CollapsibleToolboxCategory {
         // We do not store the label span on the category, so use getElementsByClassName.
         const labelDom =
             this.rowDiv_.getElementsByClassName("blocklyTreeLabel")[0];
-        console.log("asdasdasd", this);
         if (isSelected) {
             // Change the background color of the div to white.
             this.rowDiv_.style.backgroundColor = this.colour_ + "75"; // opacity
@@ -113,8 +104,6 @@ class CustomCollapsibleCategory extends Blockly.CollapsibleToolboxCategory {
         );
     }
 }
-
-// console.log("Blockly.registry.Type", Blockly.registry.Type);
 
 Blockly.registry.register(
     Blockly.registry.Type.TOOLBOX_ITEM,

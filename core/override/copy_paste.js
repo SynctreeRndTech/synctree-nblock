@@ -59,7 +59,7 @@ Blockly.copy = function (toCopy) {
         }
         const xmlText = Blockly.Xml.domToPrettyText(data.xml);
 
-        console.log("XML (copy):", xmlText);
+        // console.log("XML (copy):", xmlText);
         navigator.clipboard.writeText(xmlText);
 
         // Blockly.clipboardXml_ = data.xml;

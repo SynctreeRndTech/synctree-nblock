@@ -86,10 +86,6 @@ Blockly.inject = function (container, opt_options) {
  * @private
  */
 
-function test(e) {
-    console.log(e);
-    alert(213);
-}
 Blockly.inject.bindDocumentEvents_ = function () {
     if (!Blockly.documentEventsBound_) {
         // test(null);
