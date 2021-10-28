@@ -4,7 +4,7 @@ Blockly.Blocks["lists_create_with_item"] = {
      * Mutator bolck for adding items.
      * @this Blockly.Block
      */
-    init: function (this) {
+    init: function () {
         this.setColour(20);
         this.appendDummyInput().appendField("item");
         this.setPreviousStatement(true);

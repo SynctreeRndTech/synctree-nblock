@@ -33,3 +33,9 @@
     fill: transparent;
     stroke-width: 0;
 }
+.blocklyScrollbarHandle {
+    fill: #575c66 !important;
+    &:hover {
+        fill: #575c66 !important;
+    }
+}
