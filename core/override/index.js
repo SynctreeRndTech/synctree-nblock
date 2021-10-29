@@ -8,6 +8,7 @@ import "./mutator";
 import "./bubble";
 import "./copy_paste";
 import "./inject";
+import "./toolbox";
 // import "./browser_events";
 
 // import "./onKeyDown";
