@@ -1,4 +1,4 @@
-# Synctree nblock [![Build Status]]
+# Synctree nblock 
 
 Synctree nblock은 Google의 Blockly를 base로 하여 만들어졌습니다.
 
