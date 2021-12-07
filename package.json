@@ -1,6 +1,6 @@
 {
     "name": "synctree-nblock",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "main": "index.js",
     "types": "./types/index.d.ts",
     "keywords": [
