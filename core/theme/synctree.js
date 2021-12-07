@@ -1,8 +1,8 @@
 import * as Blockly from "blockly/core";
 
-Blockly.Themes.Synctree = {};
+const themeSynctree = {};
 
-Blockly.Themes.Synctree.defaultBlockStyles = {
+themeSynctree.defaultBlockStyles = {
     colour_blocks: {
         colourPrimary: "#CF63CF",
         colourSecondary: "#C94FC9",
@@ -196,7 +196,7 @@ Blockly.Themes.Synctree.defaultBlockStyles = {
     },
 };
 
-Blockly.Themes.Synctree.categoryStyles = {
+themeSynctree.categoryStyles = {
     colour_category: {
         colour: "#4488ff",
         colourSecondary: "#3366bb",
@@ -349,8 +349,8 @@ Blockly.Themes.Synctree.categoryStyles = {
 
 Blockly.Themes.Synctree = new Blockly.Theme(
     "synctree",
-    Blockly.Themes.Synctree.defaultBlockStyles,
-    Blockly.Themes.Synctree.categoryStyles,
+    themeSynctree.defaultBlockStyles,
+    themeSynctree.categoryStyles,
     {
         workspaceBackgroundColour: "#292c33",
         toolboxBackgroundColour: "#292c33",

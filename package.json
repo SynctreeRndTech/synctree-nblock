@@ -2,6 +2,7 @@
     "name": "synctree-nblock",
     "version": "0.1.7",
     "main": "index.js",
+    "types": "./types/index.d.ts",
     "keywords": [
         "synctree",
         "nblock",
@@ -14,7 +15,12 @@
     "author": "Synctree R&D Tech <rndtech@nntuple.com>",
     "license": "MIT",
     "dependencies": {
+        "@blockly/plugin-scroll-options": "^1.0.4",
+        "@blockly/plugin-workspace-search": "^4.0.10",
         "blockly": "^6.20210701.0",
         "lodash": "^4.17.21"
+    },
+    "devDependencies": {
+        "typescript": "^4.5.2"
     }
 }

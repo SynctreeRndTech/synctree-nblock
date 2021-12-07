@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@blockly/plugin-scroll-options@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@blockly/plugin-scroll-options/-/plugin-scroll-options-1.0.4.tgz#ea85f8c3b2f0cbe8f273f89a56a306b3bb868795"
+  integrity sha512-Aex5zpSmWDvTBRGNJWwI12qYWhXG+u0bnb74LD917EdE94tsz4P2p7B/tby3NZdsE4DvNHjUG0dxCwxTbcitHg==
+
+"@blockly/plugin-workspace-search@^4.0.10":
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/@blockly/plugin-workspace-search/-/plugin-workspace-search-4.0.10.tgz#0083f06d0bedfad0aa4ab8675df30f38cea5754b"
+  integrity sha512-OYvJG9qsYfvicNiAiaxJ4Bn+ixIUnjbXeo+9MaeHt5+9bKwsp2hHp2IeecIpxBDJPtTBn3PG2JPOmRkib7bkoA==
+
 abab@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -575,6 +585,11 @@ type-check@~0.3.2:
   integrity sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
   dependencies:
     prelude-ls "~1.1.2"
+
+typescript@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.2.tgz#8ac1fba9f52256fdb06fb89e4122fa6a346c2998"
+  integrity sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==
 
 uri-js@^4.2.2:
   version "4.4.1"

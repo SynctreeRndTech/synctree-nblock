@@ -1,4 +1,11 @@
 import * as Blockly from "blockly/core";
+import { WorkspaceSearch } from "@blockly/plugin-workspace-search";
+import {
+    ScrollOptions,
+    ScrollBlockDragger,
+    ScrollMetricsManager,
+} from "@blockly/plugin-scroll-options";
+
 /**
  * @license
  * Copyright 2011 Google LLC
@@ -29,6 +36,22 @@ Blockly.inject = function (container, opt_options) {
     if (!container || !Blockly.utils.dom.containsNode(document, container)) {
         throw Error("Error: container is not in current document.");
     }
+
+    // for plugin-scroll-options
+    var opt_plugin = {
+        // These are both required.
+        blockDragger: ScrollBlockDragger,
+        metricsManager: ScrollMetricsManager,
+    };
+
+    if (typeof opt_options.plugins === "undefined") {
+        opt_options.plugins = {};
+    }
+    opt_options.plugins = {
+        ...opt_options.plugins,
+        ...opt_plugin,
+    };
+
     var options = new Blockly.Options(
         opt_options || /** @type {!Blockly.BlocklyOptions} */ ({})
     );
@@ -70,6 +93,14 @@ Blockly.inject = function (container, opt_options) {
         // alert(123);
         Blockly.mainWorkspace = workspace;
     });
+
+    // plugin-workspace-search
+    const workspaceSearch = new WorkspaceSearch(workspace);
+    workspaceSearch.init();
+
+    // plugin-scroll-options
+    const plugin = new ScrollOptions(workspace);
+    plugin.init();
 
     return workspace;
 };

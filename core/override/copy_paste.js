@@ -10,7 +10,7 @@ cannotCopyOriginal.prototype.fireCopy = () => {
 
 const beforePasteOriginal = function () {};
 
-beforePasteOriginal.prototype.pasteBeforeAction = (xmlDom) => {
+beforePasteOriginal.prototype.pasteBeforeAction = (_xmlDom) => {
     console.log("pasteBefore fired");
 };
 
@@ -20,23 +20,19 @@ Blockly.synctreeUtil.cannotCopy = function () {};
 Blockly.synctreeUtil.cannotCopy.prototype = new cannotCopyOriginal();
 Blockly.synctreeUtil.cannotCopy.prototype.constructor =
     Blockly.synctreeUtil.cannotCopy;
-Blockly.synctreeUtil.cannotCopy.prototype.getBlocks = () => [
-    "operator_request",
-    "bizunit_create",
-    "custom_util",
-];
-Blockly.synctreeUtil.cannotCopy.prototype.fireCopy = () => {
-    alert("cannot copy this block!");
-};
+
+// Blockly.synctreeUtil.cannotCopy.prototype.fireCopy = () => {
+//     alert("cannot copy this block!");
+// };
 
 Blockly.synctreeUtil.beforePaste = function () {};
 Blockly.synctreeUtil.beforePaste.prototype = new beforePasteOriginal();
 Blockly.synctreeUtil.beforePaste.prototype.constructor =
     Blockly.synctreeUtil.beforePaste;
 
-Blockly.synctreeUtil.beforePaste.prototype.pasteBeforeAction = (xmlDom) => {
-    console.log("pasteBefore fired", xmlDom);
-};
+// Blockly.synctreeUtil.beforePaste.prototype.pasteBeforeAction = (xmlDom) => {
+//     console.log("pasteBefore fired", xmlDom);
+// };
 
 /**
  * Copy a block or workspace comment onto the local clipboard.
