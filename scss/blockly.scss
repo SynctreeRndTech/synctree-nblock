@@ -39,3 +39,16 @@
         fill: #575c66 !important;
     }
 }
+
+path.blocklyPath.blockly-ws-search-highlight {
+    fill: rgba(32, 225, 77, 1);
+}
+
+path.blocklyPath.blockly-ws-search-highlight.blockly-ws-search-current {
+    fill: rgba(0, 192, 54, 1);
+    stroke: #85ff84;
+    stroke-opacity: 0.9;
+    stroke-width: 1;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(133, 255, 132, 0.8));
+    filter: drop-shadow(0px 0px 10px rgba(133, 255, 132, 0.8));
+}

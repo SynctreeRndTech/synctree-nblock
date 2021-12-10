@@ -11822,7 +11822,7 @@ declare module Blockly {
          * @param {string} id ID of block to find.
          * @return {?Blockly.Block} The sought after block, or null if not found.
          */
-        getBlockById(id: string): Blockly.Block;
+        getBlockById(id: string): Blockly.BlockSvg;
 
         /**
          * Set a block on this workspace with the specified ID.
@@ -23843,12 +23843,15 @@ declare module Blockly.Msg {
     var COLLAPSED_WARNINGS_WARNING: string;
 }
 
+type LanguageCode = "ko" | "en" | "ja" | "fr" | "de" | "zh-hans" | "zh-hant";
 declare module Blockly.synctreeUtil {
     class cannotCopy {
         getBlocks(): string[];
-        fireCopy(): any;
+        fireCopy(): void;
     }
     class beforePaste {
-        pasteBeforeAction(xmlText: string): any;
+        pasteBeforeAction(xmlText: string): boolean;
     }
+
+    function setLanguage(lang: LanguageCode): void;
 }

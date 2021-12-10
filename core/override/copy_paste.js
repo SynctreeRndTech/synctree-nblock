@@ -1,45 +1,13 @@
 import * as Blockly from "blockly/core";
 import _ from "lodash";
 
-const cannotCopyOriginal = function () {};
-
-cannotCopyOriginal.prototype.getBlocks = () => [];
-cannotCopyOriginal.prototype.fireCopy = () => {
-    console.log("cannot copy!");
-};
-
-const beforePasteOriginal = function () {};
-
-beforePasteOriginal.prototype.pasteBeforeAction = (_xmlDom) => {
-    console.log("pasteBefore fired");
-};
-
-Blockly.synctreeUtil = {};
-
-Blockly.synctreeUtil.cannotCopy = function () {};
-Blockly.synctreeUtil.cannotCopy.prototype = new cannotCopyOriginal();
-Blockly.synctreeUtil.cannotCopy.prototype.constructor =
-    Blockly.synctreeUtil.cannotCopy;
-
-// Blockly.synctreeUtil.cannotCopy.prototype.fireCopy = () => {
-//     alert("cannot copy this block!");
-// };
-
-Blockly.synctreeUtil.beforePaste = function () {};
-Blockly.synctreeUtil.beforePaste.prototype = new beforePasteOriginal();
-Blockly.synctreeUtil.beforePaste.prototype.constructor =
-    Blockly.synctreeUtil.beforePaste;
-
-// Blockly.synctreeUtil.beforePaste.prototype.pasteBeforeAction = (xmlDom) => {
-//     console.log("pasteBefore fired", xmlDom);
-// };
-
 /**
  * Copy a block or workspace comment onto the local clipboard.
+ * @param {ClipboardEvent} e Block or Workspace Comment to be copied.
  * @param {!Blockly.ICopyable} toCopy Block or Workspace Comment to be copied.
  * @package
  */
-Blockly.copy = function (toCopy) {
+Blockly.copy = function (e, toCopy) {
     const data = toCopy.toCopyData(),
         cannotCopy = new Blockly.synctreeUtil.cannotCopy(),
         cannotCopyBlocks = cannotCopy.getBlocks();
@@ -55,8 +23,12 @@ Blockly.copy = function (toCopy) {
         }
         const xmlText = Blockly.Xml.domToPrettyText(data.xml);
 
-        // console.log("XML (copy):", xmlText);
-        navigator.clipboard.writeText(xmlText);
+        // console.log("XML (copy):", navigator);
+        e.preventDefault();
+        e.clipboardData.setData("text/plain", xmlText);
+        // console.log(e.clipboardData.getData("text"));
+
+        // navigator.clipboard.writeText(xmlText);
 
         // Blockly.clipboardXml_ = data.xml;
         // Blockly.clipboardSource_ = data.source;
@@ -66,11 +38,16 @@ Blockly.copy = function (toCopy) {
 
 /**
  * Paste a block or workspace comment on to the main workspace.
+ * @param {Blockly.WorkspaceSvg} workspace Block or Workspace Comment to be copied.
+ * @param {ClipboardEvent} e Block or Workspace Comment to be copied.
  * @return {boolean} True if the paste was successful, false otherwise.
  * @package
  */
-Blockly.paste = async function () {
-    const xmlText = await navigator.clipboard.readText(),
+Blockly.paste = function (workspace, e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const xmlText = e.clipboardData.getData("Text"),
         domParser = new DOMParser(),
         dom = domParser.parseFromString(xmlText, "text/xml"),
         pasteBefore = new Blockly.synctreeUtil.beforePaste();
@@ -78,11 +55,15 @@ Blockly.paste = async function () {
     try {
         // check text is xml
         if (dom.getElementsByTagName("parsererror").length > 0) {
+            console.error(
+                "Blockly.paste error::",
+                dom.getElementsByTagName("parsererror")
+            );
             return false;
         }
         if (xmlText) {
             const xmlDom = Blockly.Xml.textToDom(xmlText);
-            const workspace = Blockly.getMainWorkspace();
+            // const workspace = Blockly.getMainWorkspace();
             pasteBefore.pasteBeforeAction(xmlText);
             const m = workspace.getMetrics();
 
