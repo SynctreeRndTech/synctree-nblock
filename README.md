@@ -1,4 +1,4 @@
-# Synctree nblock 
+# Synctree nblock
 
 Synctree nblock은 Google의 Blockly를 base로 하여 만들어졌습니다.
 
@@ -30,6 +30,11 @@ const options = {
 const workspace = Blockly.inject("blocklyDiv", options);
 ```
 
-현재 베타버전 이라서 더욱 많은 기능이 추가되면 업데이트 하겠습니다.
+```css
+@import "~synctree-nblock/scss/blockly.scss";
+```
 
-<!-- ### Added plug-in -->
+### Added plug-in
+
+-   [plugin-workspace-search](https://google.github.io/blockly-samples/plugins/workspace-search/test/)
+-   [scroll-options](https://google.github.io/blockly-samples/plugins/scroll-options/test/)
