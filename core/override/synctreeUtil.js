@@ -61,6 +61,9 @@ Blockly.synctreeUtil.setLanguage = (code) => {
         case "de":
             lang = de;
             break;
+        case "es":
+            lang = es;
+            break;
         case "zh-hans":
             lang = zhHans;
             break;
